@@ -29,12 +29,9 @@ export function getDetailsContentLayout(ymaps) {
     {
       build: () => {
         BalloonContentLayout.superclass.build.call(this);
-
         const { details } = this.getData().object.properties;
-
         if (details) {
           const container = this.getElement().querySelector('.details-chart');
-
           this.connectionChart = createChart(
             container,
             details.chart,
@@ -42,16 +39,13 @@ export function getDetailsContentLayout(ymaps) {
           );
         }
       },
-
       clear: () => {
         if (this.connectionChart) {
           this.connectionChart.destroy();
         }
-
         BalloonContentLayout.superclass.clear.call(this);
       }
     }
   );
-
   return BalloonContentLayout;
 }
